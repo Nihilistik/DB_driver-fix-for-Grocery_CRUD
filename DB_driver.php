@@ -1869,16 +1869,15 @@ abstract class CI_DB_driver {
 		// with an alias. While we're at it, we will escape the components
 		if (strpos($item, '.') !== FALSE)
 		{
-            //Jv - 15/07/2016 - Workaround para el bug de Grocery CRUD
-            //para el tratamiento del prefixdb. Si hay backticks (`) en
-            //la cadena SQL la concatenación de elementos da resultados
-            //inesperados : {prefixdb.'`table_name`')
-            //Aqui eliminamos los backticks
-            $check_accents = false;
-            if(strpos($item, '`') !== FALSE){
-                $check_accents = true;
-                $item = str_replace('`', '', $item);
-            }
+		        //MOD - Workaround for the Grocery CRUD dbprefix known issue 
+		        //If there are backticks (`) at the SQL string, the concatenation
+		        //of elements produces unwanted behaviors : {prefixdb.'`table_name`')
+		        //like prefix_`prefix_table`.column_name
+		        $check_accents = false;
+		        if(strpos($item, '`') !== FALSE){
+		                $check_accents = true;
+		        	$item = str_replace('`', '', $item);
+		        }
 			$parts = explode('.', $item);
 
 			// Does the first segment of the exploded item match
@@ -1943,12 +1942,16 @@ abstract class CI_DB_driver {
 				// We only add the table prefix if it does not already exist
 				elseif (strpos($parts[$i], $this->dbprefix) !== 0)
 				{
-                    //Jv - 15/07/2016 - Restauramos los backticks en torno
-                    //al prefixdb si procede. Si no, trabajamos igual.
+			                //MOD- backticks restored around dbprefix if proceed
+			                //If not, keep going as usual.
 					if($check_accents)
-                        $parts[$i] = '`'.$this->dbprefix.'`'.$parts[$i];
-                    else
-                        $parts[$i] = $this->dbprefix.$parts[$i];
+					{
+                        			$parts[$i] = '`'.$this->dbprefix.'`'.$parts[$i];
+                    			}
+                    			else
+                    			{
+                        			$parts[$i] = $this->dbprefix.$parts[$i];
+                    			}
 				}
 
 				// Put the parts back together
