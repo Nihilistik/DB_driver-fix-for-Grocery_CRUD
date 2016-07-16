@@ -12,6 +12,8 @@ It's an old topic, but the problem doesn't seem to be solved "officially" and i 
 to keep using dbprefix without writing it in every single query in CI_Models, what makes very hard tu use thid part
 modules or libraries which use database configurations.
 
+This solution makes possible to use CI_Model's as usual, **without** specify the dbprefix, and Grocery_CRUD **with** the dbprefix.
+
 I've modifies the function _protect_identifiers(...)_ in _system_folder_\database\DB_driver.php and it's marked on comments in the file. 
 Search for the **//MOD** comments on code.
 
