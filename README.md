@@ -18,5 +18,5 @@ Search for the **//MOD** comments on code.
 Feel free to modify/comment/criticize/test it.
 
 **NOTE:**
-It's tested only in basic CRUD operations, and i'll update things as i'll go in advanced operations like 
-relations.
+
+Maybe it's not the best way to do this, and i've not tested in every possible way, but for basic operations, this works form me. I'll will update as i find new issues.
