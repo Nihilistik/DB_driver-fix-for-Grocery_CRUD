@@ -12,7 +12,7 @@ It's an old topic, but the problem doesn't seem to be solved "officially" and i 
 to keep using dbprefix without writing it in every single query in CI_Models, what makes very hard tu use thid part
 modules or libraries which use database configurations.
 
-I've modifies the function _protect_identifiers(...)_ and it's marked on comments in the file. 
+I've modifies the function _protect_identifiers(...)_ in _<system_folder>_\database\DB_driver.php and it's marked on comments in the file. 
 Search for the **//MOD** comments on code.
 
 Feel free to modify/comment/criticize/test it.
