@@ -13,6 +13,7 @@ to keep using dbprefix without writing it in every single query in CI_Models, wh
 modules or libraries which use database configurations.
 
 I've modifies the function _protect_identifiers(...)_ and it's marked on comments in the file. 
+Search for the **//MOD** comments on code.
 
 Feel free to modify/comment/criticize/test it.
 
