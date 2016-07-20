@@ -22,3 +22,18 @@ Feel free to modify/comment/criticize/test it.
 **NOTE:**
 
 Maybe it's not the best way to do this, and i've not tested in every possible way, but for basic operations, this works form me. I'll will update as i find new issues.
+
+
+**NOTE 2:**
+
+There is another fix, _easier and faster_ than my own, but not useful if you use table or column with names that may use special words or characters. 
+**This is a bad practice** since the begining but you never know which kind of code are you going to find. The fix is to replaces in **Grocery_crud_model.php**
+the line nº 53 from:
+<pre>$select = "`{$this->table_name}`.*";</pre>
+to
+`$select = "{$this->table_name}.*";
+
+
+
+
+
