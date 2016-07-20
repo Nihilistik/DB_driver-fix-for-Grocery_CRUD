@@ -31,7 +31,7 @@ There is another fix, _easier and faster_ than my own, but not useful if you use
 the line nº 53 from:
 <pre>$select = "`{$this->table_name}`.*";</pre>
 to
-`$select = "{$this->table_name}.*";
+<pre>$select = "{$this->table_name}.*";</pre>
 
 
 
